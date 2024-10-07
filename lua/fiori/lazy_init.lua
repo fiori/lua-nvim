@@ -14,4 +14,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("fiori.lazy")
+require("lazy").setup(
+{
+    spec = "fiori.lazy",
+    change_detection = { notify = false }
+})
