@@ -53,6 +53,9 @@ vim.keymap.set(
     "oif err != nil {<CR>}<Esc>Oreturn err<Esc>"
 )
 
+
+vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>zz")
+
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
