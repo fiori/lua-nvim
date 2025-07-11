@@ -41,6 +41,13 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
+-- LeetCode
+vim.keymap.set("n", "<leader>ll", "<cmd>Leet list<CR>")
+vim.keymap.set("n", "<leader>lm", "<cmd>Leet menu<CR>")
+vim.keymap.set("n", "<leader>lr", "<cmd>Leet run<CR>")
+vim.keymap.set("n", "<leader>ls", "<cmd>Leet submit<CR>")
+vim.keymap.set("n", "<leader>lt", "<cmd>Leet tabs<CR>")
+
 -- build c and run
 vim.keymap.set("n", "<leader>br", "<cmd>!gcc % -o output && ./output<CR>")
 
@@ -65,3 +72,5 @@ vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>zz")
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+
