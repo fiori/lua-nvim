@@ -11,6 +11,7 @@ return {
         "L3MON4D3/LuaSnip",
         "saadparwaiz1/cmp_luasnip",
         "j-hui/fidget.nvim",
+        "Hoffs/omnisharp-extended-lsp.nvim",
     },
 
     config = function()
@@ -22,13 +23,15 @@ return {
             vim.lsp.protocol.make_client_capabilities(),
             cmp_lsp.default_capabilities())
 
+
         require("fidget").setup({})
         require("mason").setup()
         require("mason-lspconfig").setup({
             ensure_installed = {
                 "lua_ls",
                 "gopls",
-                "pyright"
+                "pyright",
+                "omnisharp"
             },
             handlers = {
                 function(server_name) -- default handler (optional)
@@ -67,6 +70,30 @@ return {
                         }
                     }
                 end,
+                ["omnisharp"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.omnisharp.setup {
+                        capabilities = capabilities,
+                    }
+                end,
+
+                ["pyright"] = function()
+                    local lspconfig = require("lspconfig")
+                    lspconfig.pyright.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                pythonPath = "/opt/homebrew/bin/python3",  -- or wherever your python is
+                                analysis = {
+                                    autoSearchPaths = true,
+                                    useLibraryCodeForTypes = true,
+                                    typeCheckingMode = "basic"
+                                }
+                            }
+                        }
+                    })
+                end
+
             }
         })
 

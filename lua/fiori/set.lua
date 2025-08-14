@@ -16,6 +16,8 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 
+vim.opt.fileformats = { "unix", "dos" }
+
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
@@ -26,6 +28,10 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
+vim.opt.colorcolumn = "80"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
+-- folding
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = true
