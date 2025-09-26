@@ -50,6 +50,9 @@ vim.keymap.set("n", "<leader>lt", "<cmd>Leet tabs<CR>")
 
 -- build c and run
 vim.keymap.set("n", "<leader>br", "<cmd>!gcc % -o output && ./output<CR>")
+-- Compile & run current OCaml file with ocamlc
+vim.keymap.set("n", "<leader>or", "<cmd>!ocamlc % -o output && ./output<CR>")
+
 
 -- uses regex to replace the current word that the cursor is on
 vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

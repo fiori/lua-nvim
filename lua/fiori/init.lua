@@ -39,12 +39,15 @@ autocmd('LspAttach', {
     group = fiori,
     callback = function(e)
         local opts = { buffer = e.buf }
-        vim.keymap.set("n", "gd", function() require('omnisharp_extended').lsp_definition() end, { noremap = true })
-        vim.keymap.set("n", "<leader>D", function() require('omnisharp_extended').lsp_type_definition() end, { noremap = true })
-        vim.keymap.set("n", "gr", function() require('omnisharp_extended').lsp_references() end, { noremap = true })
-        vim.keymap.set("n", "gi", function() require('omnisharp_extended').lsp_implementation() end, { noremap = true })
+        -- vim.keymap.set("n", "gd", function() require('omnisharp_extended').lsp_definition() end, { noremap = true })
+        -- vim.keymap.set("n", "<leader>D", function() require('omnisharp_extended').lsp_type_definition() end, { noremap = true })
+        -- vim.keymap.set("n", "gr", function() require('omnisharp_extended').lsp_references() end, { noremap = true })
+        -- vim.keymap.set("n", "gi", function() require('omnisharp_extended').lsp_implementation() end, { noremap = true })
 
+        vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+        vim.keymap.set("n", "gi", function() vim.lsp.buf.implementation() end, opts)
         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+
         -- Signature Help (function overloads, parameter hints)
         vim.keymap.set("n", "<leader>K", function() vim.lsp.buf.signature_help() end, opts)
         vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
